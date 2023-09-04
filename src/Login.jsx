@@ -10,9 +10,6 @@ function Login() {
     const [errMessage, seterrMessage] = useState("");
     const email = useRef(null);
     const pass = useRef(null);
-
-    const navigate = useNavigate();
-
     function toggleSignInForm() {
         email.current.value = null;
         pass.current.value = null;
@@ -43,8 +40,6 @@ function Login() {
                 signInWithEmailAndPassword(auth, email.current.value, pass.current.value).then(
                     function exec(usercred) {
                         const user = usercred.user;
-                        navigate('/browse');
-
                     }
                 ).catch(function errCb(error) {
                     seterrMessage(error.message+' '+ error.code);
@@ -57,16 +52,12 @@ function Login() {
                     function exec(userCred) {
                         const user = userCred.user;
                         console.log(user);
-                        navigate('/browse');
                     }
                 ).catch((error) => {
                     const errcode = error.code;
                     //set the error message show it on UI
                     seterrMessage(error.message+' '+errcode);
                 });
-
-
-
             }
         }
         

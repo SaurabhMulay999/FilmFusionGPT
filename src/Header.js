@@ -1,10 +1,14 @@
-import { signOut } from 'firebase/auth'
-import React from 'react'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
+import React, { useEffect } from 'react'
 import { auth } from './Utils/firebase'
-import { useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { addUser, removeUser } from './Utils/userSlice'
+
 
 function Header(prop) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function HandleSignOut() {
     signOut(auth).then(() => {
@@ -13,6 +17,25 @@ function Header(prop) {
       navigate('/Error')
     })
   }
+
+  //we have to call this API only once when user action like sign in,out,up
+  useEffect(() => {
+    onAuthStateChanged(auth, function (user) {
+        if (user) {
+            //sign in or up
+            const { uid, email, displayname } = user;
+            dispatch(addUser({uid:uid, email:email,displayname:displayname}));
+          navigate('/browse');
+        }
+        else {
+            //user is sign out
+            dispatch(removeUser());
+            navigate('/');
+        }
+
+    })
+
+},[])
 
   return (
     <div className="flex justify-between absolute px-8 py-2 bg-gradient-to-b from-black w-full h-46 z-10">

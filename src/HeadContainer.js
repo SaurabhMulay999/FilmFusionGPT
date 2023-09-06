@@ -11,9 +11,12 @@ const HeadContainer = () => {
   if (movie == null) return;
   
   const mainMovie = movie[0];
+  const { original_title, overview } = mainMovie;
+
   return (
     <div>
-      <h1>{mainMovie?.title}</h1>
+      <VideoTitle title={original_title} overview={overview} />
+      <VideoBackground MovieId={mainMovie.id}/>
     </div>
   )
 }

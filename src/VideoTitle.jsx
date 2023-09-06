@@ -8,4 +8,4 @@ const VideoTitle = () => {
   )
 }
 
-export default VideoTitle
+export default VideoTitle;

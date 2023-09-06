@@ -20,7 +20,7 @@ function Header(prop) {
 
   //we have to call this API only once when user action like sign in,out,up
   useEffect(() => {
-    onAuthStateChanged(auth, function (user) {
+    const unsubscribe=onAuthStateChanged(auth, function (user) {
         if (user) {
             //sign in or up
             const { uid, email, displayname } = user;
@@ -34,6 +34,10 @@ function Header(prop) {
         }
 
     })
+
+    return function unmt() {
+      unsubscribe();
+    }
 
 },[])
 

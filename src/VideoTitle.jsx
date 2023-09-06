@@ -10,7 +10,7 @@ const VideoTitle = (props) => {
         <button className='bg-gray-200 px-12 text-black p-3 flex m-1 rounded-lg'><img src="https://uxwing.com/wp-content/themes/uxwing/download/video-photography-multimedia/play-icon.png" className='w-4 m-1 h-4'/>Play</button>
         
 
-        <button className='bg-gray-200 px-12 text-black p-3 flex m-1 rounded-lg'>More Info</button>
+        <button className='bg-gray-600 px-12 text-white p-3 flex m-1 rounded-lg'>More Info</button>
       </div>
     </div>
   )

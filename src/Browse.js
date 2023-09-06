@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import { options } from './constants/constant'
 import useNowPlay from './hooks/useNowPlay'
+import HeadContainer from './HeadContainer'
+import BodyContainer from './BodyContainer'
+
 
 const Browse = () => {
   //calling custom Hook
@@ -9,7 +12,10 @@ const Browse = () => {
      
   return (
     <div>
-      <Header/>
+      <Header />
+      <HeadContainer />
+      <BodyContainer/>
+   
     </div>
   )
 }

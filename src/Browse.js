@@ -15,7 +15,6 @@ const Browse = () => {
       <Header />
       <HeadContainer />
       <BodyContainer/>
-   
     </div>
   )
 }

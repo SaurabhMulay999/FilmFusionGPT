@@ -11,7 +11,7 @@ const HeadContainer = () => {
   })
 
   if (movie == null) return;
-  const mainMovie = movie[1];
+  const mainMovie = movie[0];
   const { original_title, overview } = mainMovie;
 
   return (

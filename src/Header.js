@@ -46,12 +46,12 @@ function Header(prop) {
       
       <img src="https://images.ctfassets.net/4cd45et68cgf/7LrExJ6PAj6MSIPkDyCO86/542b1dfabbf3959908f69be546879952/Netflix-Brand-Logo.png?w=700&h=456" alt='Netflix' className='w-44' />
 
-      <div className='flex p-6 m-1 flex-wrap justify-normal'>
-      <button className='text-white font-bold m-1'>Home</button>
-        <button className='text-white m-1 p-1'>Tv Show</button>
-        <button className='text-white m-1 p-1'>Movies</button>
-        <button className='text-white m-1 p-1'>New & Popular</button>
-        <button className='text-white p-1'>Browse by Language</button>
+      <div  className='flex p-6 m-1 flex-wrap justify-normal'>
+      <button hidden={prop.signIn} className='text-white font-bold m-1'>Home</button>
+        <button hidden={prop.signIn} className='text-white font-extralight m-1 p-1'>Tv Show</button>
+        <button hidden={prop.signIn} className='text-white font-extralight m-1 p-1'>Movies</button>
+        <button hidden={prop.signIn} className='text-white font-extralight  m-1 p-1'>New & Popular</button>
+        <button hidden={prop.signIn} className='text-white font-extralight  bg-purple-500 m-2 p-2 rounded-2xl'>GPT Search</button>
         <div className='mx-[200px]'></div>
       </div>
       <div className='flex bg-gradient-to-b from-black mt-4 p-1 mx-24'>

@@ -4,6 +4,7 @@ import { auth } from './Utils/firebase'
 import {useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from './Utils/userSlice'
+import { toggleGptSearchView } from './Utils/GptSlice';
 
 
 function Header(prop) {
@@ -39,7 +40,11 @@ function Header(prop) {
       unsubscribe();
     }
 
-},[])
+  }, [])
+  
+  function HandleGptSearch() {
+    dispatch(toggleGptSearchView());
+  }
 
   return (
     <div className="flex flex-row justify-items-start space-x-12 absolute px-4 py-1 bg-gradient-to-b from-black w-full h-42 z-20">
@@ -51,12 +56,13 @@ function Header(prop) {
         <button hidden={prop.signIn} className='text-white font-extralight m-1 p-1'>Tv Show</button>
         <button hidden={prop.signIn} className='text-white font-extralight m-1 p-1'>Movies</button>
         <button hidden={prop.signIn} className='text-white font-extralight  m-1 p-1'>New & Popular</button>
-        <button hidden={prop.signIn} className='text-white font-extralight  bg-purple-500 m-2 p-2 rounded-2xl'>GPT Search</button>
+        <button hidden={prop.signIn} onClick={HandleGptSearch} className='text-white font-extralight  bg-purple-500 m-2 p-2 rounded-2xl'>GPT Search</button>
         <div className='mx-[200px]'></div>
       </div>
-      <div className='flex bg-gradient-to-b from-black mt-4 p-1 mx-24'>
-        <img  hidden={prop.signIn } className="h-9 w-9 " src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117" alt="logo" />
-        <button  hidden={prop.signIn} onClick={HandleSignOut} className='p-1 m-1 text-white font-bold'>Sign out</button>
+      <div className='bg-gradient-to-b from-black mt-6 p-1 mx-24'>
+        <img  hidden={prop.signIn } className="h-6 w-6" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png?20201013161117" alt="logo" />
+        <button hidden={prop.signIn} onClick={HandleSignOut} className='bg-red-600 rounded-3xl p-1 text-white font-bold'>Sign out</button>
+  
       </div>
 
     </div>

@@ -7,6 +7,8 @@ import BodyContainer from './BodyContainer'
 import usePopularMovie  from './hooks/usePopularMovie'
 import useTopRatedMovies from './hooks/useTopRatedMovies'
 import useUpcomingMovies from './hooks/useUpcomingMovies'
+import GPTSearch from './GPTSearch'
+import { useSelector } from 'react-redux'
 
 const Browse = () => {
   //calling custom Hook
@@ -14,10 +16,15 @@ const Browse = () => {
   usePopularMovie();
   useTopRatedMovies();
   useUpcomingMovies();
+
+  const searchtoggle = useSelector(function (store) {
+    return store.GptSlice.toggleSearch;
+  })
      
   return (
     <div>
       <Header />
+      {searchtoggle && <GPTSearch />}
       <HeadContainer />
       <BodyContainer/>
     </div>

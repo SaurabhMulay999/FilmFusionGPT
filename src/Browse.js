@@ -22,12 +22,17 @@ const Browse = () => {
   })
      
   return (
-    <div>
+    <div className=''>
       <Header />
-      {searchtoggle && <GPTSearch />}
-      <HeadContainer />
-      <BodyContainer/>
-    </div>
+      {searchtoggle ? (<GPTSearch />) :
+        (<>
+          <HeadContainer />
+          <BodyContainer />
+        </>
+        )
+      }
+      
+      </div>
   )
 }
 

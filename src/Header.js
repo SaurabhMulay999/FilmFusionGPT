@@ -56,7 +56,7 @@ function Header(prop) {
         <button hidden={prop.signIn} className='text-white font-extralight m-1 p-1'>Tv Show</button>
         <button hidden={prop.signIn} className='text-white font-extralight m-1 p-1'>Movies</button>
         <button hidden={prop.signIn} className='text-white font-extralight  m-1 p-1'>New & Popular</button>
-        <button hidden={prop.signIn} onClick={HandleGptSearch} className='text-white font-extralight  bg-purple-500 m-2 p-2 rounded-2xl'>GPT Search</button>
+        <button hidden={prop.signIn} onClick={HandleGptSearch} className='text-white font-bold bg-purple-500 m-2 p-2 rounded-2xl'>GPT Search</button>
         <div className='mx-[200px]'></div>
       </div>
       <div className='bg-gradient-to-b from-black mt-6 p-1 mx-24'>
